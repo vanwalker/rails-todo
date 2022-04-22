@@ -5,3 +5,17 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+# db/seeds.rb
+require 'faker'
+
+puts 'Creating 5 fake todos...'
+5.times do
+  todo = Todo.new(
+    title:    'Titre',
+    description: Faker::Quote.yoda,
+    date: DateTime.now
+  )
+  todo.save!
+end
+puts 'Finished!'

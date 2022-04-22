@@ -1,0 +1,10 @@
+<h1>Todos#index</h1>
+<p>Find me in app/views/todos/index.html.erb</p>
+
+<%  @todos.each do |item|   %>
+<p> <%= item.description %>
+  <span> <%= link_to "Delete", todo_path(item), method: :delete %> </span>
+  <span> <%= link_to "Update", edit_todo_path(item) %> </span>
+  <span> <%= link_to "New", new_todo_path %> </span>
+</p>
+<% end %>

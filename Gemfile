@@ -21,7 +21,7 @@ gem 'jbuilder', '~> 2.7'
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-
+gem 'devise'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 
@@ -49,5 +49,9 @@ group :test do
   gem 'webdrivers'
 end
 
+gem 'faker'
+gem 'autoprefixer-rails', '10.2.5'
+gem 'font-awesome-sass'
+gem 'simple_form', github: 'heartcombo/simple_form'
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
