@@ -9,12 +9,17 @@
 # db/seeds.rb
 require 'faker'
 
+puts 'deleting all todos...'
+Todo.destroy_all
+puts 'deleted ...'
 puts 'Creating 5 fake todos...'
 5.times do
   todo = Todo.new(
     title:    'Titre',
     description: Faker::Quote.yoda,
-    date: DateTime.now
+    date: DateTime.now,
+    mark: false,
+    user_id: 1
   )
   todo.save!
 end

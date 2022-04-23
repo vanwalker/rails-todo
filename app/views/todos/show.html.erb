@@ -2,3 +2,4 @@
 <p>Find me in app/views/todos/show.html.erb</p>
  <%= @todo.description %>
    <span> <%= link_to "Update", edit_todo_path(@todo) %> </span>
+  <span> <%= link_to "Back to Todo", todos_path %> </span>

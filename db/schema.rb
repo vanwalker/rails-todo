@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_21_161926) do
+ActiveRecord::Schema.define(version: 2022_04_21_162230) do
 
   create_table "homes", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
@@ -39,4 +39,5 @@ ActiveRecord::Schema.define(version: 2022_04_21_161926) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "todos", "users"
 end
