@@ -12,12 +12,9 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-       <%  @mytodos.each do |item|   %>
-            <p> <%= item.title %>
-                <span> <%= link_to "view", todo_path(item) %> </span>
 
-            </p>
-            <% end %>
+<%= result.title %>
+<%= result.description %>
 
       </div>
       <div class="modal-footer">
