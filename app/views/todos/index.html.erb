@@ -6,7 +6,7 @@
 <% if current_user %>
   <%  @mytodos.each do |item|   %>
   <p> <%= item.title %>
-    <%= render 'item', result: item %>
+
     <span> <%= link_to "view", todo_path(item) %> </span>
     <span> <%= link_to "Delete", todo_path(item), method: :delete %> </span>
     <span> <%= link_to "Update", edit_todo_path(item) %> </span>

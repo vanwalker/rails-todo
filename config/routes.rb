@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
 
-  devise_for :users do
-    resources :todos, only: [:my_todos]
-  end
+  devise_for :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root to: "home#index"
-  resources :todos
+  resources :todos do
+    resources :groceries, except: [:show]
+  end
 end
