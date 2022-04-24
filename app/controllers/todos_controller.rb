@@ -1,6 +1,6 @@
 class TodosController < ApplicationController
   def index
-
+    top
     # my_todos
       if current_user
       @mytodos = Todo.where(user_id: current_user.id)
@@ -10,11 +10,16 @@ class TodosController < ApplicationController
       end
   end
 
+  def top
+    @top = Todo.where(priority: 3..)
+  end
+
   def my_todos
     @mytodos = Todo.where(user_id: current_user.id)
   end
 
   def show
+
     @todo = Todo.find(params[:id])
 
   end
@@ -54,6 +59,6 @@ class TodosController < ApplicationController
   private
 
   def todo_params
-    params.require(:todo).permit(:title, :description, :date, :mark, :user_id)
+    params.require(:todo).permit(:title, :description, :date, :mark, :user_id, :priority)
   end
 end

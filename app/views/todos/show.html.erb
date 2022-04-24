@@ -1,5 +1,15 @@
-<h1>Todos#show</h1>
+
 <p>Find me in app/views/todos/show.html.erb</p>
  <%= @todo.description %>
+ <p>Mes Courses</p>
+  <ul class="list-group">
+    <% @todo.groceries.each do |review| %>
+      <li class="list-group-item"><%= review.nom %> <span>  - priority: <%= review.priority %></span>
+        <span> <%= link_to "update shopping", edit_todo_grocery_path(@todo, review) %> </span></li>
+
+    <% end %>
+  </ul>
    <span> <%= link_to "Update", edit_todo_path(@todo) %> </span>
+
+
   <span> <%= link_to "Back to Todo", todos_path %> </span>

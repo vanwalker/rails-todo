@@ -1,23 +1,27 @@
 class GroceriesController < ApplicationController
+    before_action :set_todo
+
   def new
     @grocery = Grocery.new
   end
 
   def create
     @grocery = Grocery.new(grocery_params)
-    @grocery.user = current_user
+    @grocery.todo = @todo
 
     if @grocery.save
-      redirect_to grocerys_path
+      redirect_to todo_path(@todo)
     else
       render :new
     end
   end
 
+
+
   def update
     @grocery = Grocery.find(params[:id])
     @grocery.update(grocery_params)
-    redirect_to grocery_path(@grocery)
+    redirect_to todo_path(@todo)
   end
 
   def destroy
@@ -35,7 +39,11 @@ class GroceriesController < ApplicationController
 
   private
 
+  def set_todo
+    @todo = Todo.find(params[:todo_id])
+  end
+
   def grocery_params
-    params.require(:grocery).permit(:quantity, :name, :priority)
+    params.require(:grocery).permit(:quantity, :nom, :priority)
   end
 end

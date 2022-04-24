@@ -1,12 +1,25 @@
-<h1> My Todos</h1>
+<h1>Todos#Priority</h1>
+<% @top.each do |item| %>
+<h4> <%= item.title %> </h4>
+<h4> <%= item.description %> </h4>
+<h4> <%= item.priority %> </h4>
+<br>
+<% end %>
 <p>Find me in app/views/todos/index.html.erb</p>
 
 
 
 <% if current_user %>
   <%  @mytodos.each do |item|   %>
-  <p> <%= item.title %>
-
+  <p> <%= item.title %> <span> -
+      <%= item.description %> -
+      </span> - <%= item.priority %> </span>
+      <% if item.mark %>
+        </span> - Done [X] </span>
+      <% else %>
+        </span> - Done: [] </span>
+      <% end %>
+    <span> <%= link_to "Shopping list", new_todo_grocery_path(item) %> </span>
     <span> <%= link_to "view", todo_path(item) %> </span>
     <span> <%= link_to "Delete", todo_path(item), method: :delete %> </span>
     <span> <%= link_to "Update", edit_todo_path(item) %> </span>
@@ -16,8 +29,8 @@
 <% else %>
   <% @todos.each do |item|   %>
 
-  <p> <%= item.title %>
-      <span> <%= link_to "view", todo_path(item) %> </span>
+  <p> <%= item.title %> <span> </span> <span> -  <%= item.description %> </span> - <%= item.priority %> </span>
+    <span> <%= link_to "view", todo_path(item) %> </span>
     <span> <%= link_to "Delete", todo_path(item), method: :delete %> </span>
     <span> <%= link_to "Update", edit_todo_path(item) %> </span>
 

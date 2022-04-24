@@ -1,0 +1,11 @@
+<div class="container">
+<%= notice %>
+<br>
+    <%= simple_form_for [ @todo, @grocery ] do |f| %>
+      <%= f.input :nom %>
+      <%= f.input :priority %>
+      <%= f.input :quantity %>
+
+      <%= f.submit "Shopping list", class: "btn btn-primary" %>
+    <% end %>
+</div>
