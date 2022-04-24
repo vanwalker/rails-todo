@@ -1,3 +1,3 @@
 class Grocery < ApplicationRecord
-  has_one :todo
+  belongs_to :todo
 end
