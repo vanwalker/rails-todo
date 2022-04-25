@@ -11,7 +11,8 @@ class TodosController < ApplicationController
   end
 
   def top
-    @top = Todo.where(priority: 3..)
+    @top = Todo.where(priority: 3..).order("priority ASC")
+    @avg = Todo.average(:priority)
   end
 
   def my_todos

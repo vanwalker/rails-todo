@@ -1,4 +1,6 @@
 <h1>Todos#Priority</h1>
+<h4>Average priority : <%= @avg %> </h4>
+<br>
 <% @top.each do |item| %>
 <h4> <%= item.title %> </h4>
 <h4> <%= item.description %> </h4>
@@ -14,10 +16,10 @@
   <p> <%= item.title %> <span> -
       <%= item.description %> -
       </span> - <%= item.priority %> </span>
-      <% if item.mark %>
+      <% if item.mark  %>
         </span> - Done [X] </span>
       <% else %>
-        </span> - Done: [] </span>
+        </span> - Done: [ ] </span>
       <% end %>
     <span> <%= link_to "Shopping list", new_todo_grocery_path(item) %> </span>
     <span> <%= link_to "view", todo_path(item) %> </span>

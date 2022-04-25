@@ -2,9 +2,11 @@
 <%= notice %>
 <br>
     <%= simple_form_for [ @todo, @grocery ] do |f| %>
-      <%= f.input :nom %>
+      <%# <%= f.input :nom, collection: Todo::COMPOSANTS, :include_blank => "Anything", wrapper_html: { class: 'form-group' }, :as => :check_boxes, include_hidden: false, :input_html => {:multiple => true} %>
+      <%= f.input :nom, collection: Todo::COMPOSANTS %>
       <%= f.input :priority %>
       <%= f.input :quantity %>
+      <%# <%= f.collection_select(:nom, Todo::COMPOSANTS , {:prompt => "Please Select a Sector"}, {:multiple => true}) %> %>
 
       <%= f.submit "Shopping list", class: "btn btn-primary" %>
     <% end %>
